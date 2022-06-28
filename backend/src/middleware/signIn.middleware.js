@@ -2,7 +2,7 @@ const throwError = require("../helpers/error.helper");
 const { db } = require("../config/connection.config");
 const Users = db.collection("Users");
 
-userValidate = async (req, res, next) => {
+signInValidate = async (req, res, next) => {
   let errors = {};
   const {
     fullName,
@@ -87,4 +87,4 @@ userValidate = async (req, res, next) => {
   }
 };
 
-module.exports = userValidate;
+module.exports = signInValidate;

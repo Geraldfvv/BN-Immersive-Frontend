@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const userRouter = require("./routes/users.route");
+const signInRouter = require("./routes/signIn.route");
 
 const errorHandler = require("./middleware/error.middleware.js");
 
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/signup", userRouter);
+app.use("/signin", signInRouter);
 app.use(errorHandler);
 
 module.exports = app;

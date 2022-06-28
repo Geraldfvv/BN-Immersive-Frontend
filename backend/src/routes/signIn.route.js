@@ -1,9 +1,9 @@
 const express = require("express");
-const userValidate = require("../middleware/signIn.middleware.js");
+const signInValidate = require("../middleware/signIn.middleware.js");
 const SignInService = require("../services/signIn.service");
-const userRouter = express.Router();
+const signInRouter = express.Router();
 
-userRouter.route("/").post(userValidate, async (req, res, next) => {
+signInRouter.route("/").post(signInValidate, async (req, res, next) => {
   const data = req.body;
 
   try {
@@ -14,4 +14,4 @@ userRouter.route("/").post(userValidate, async (req, res, next) => {
   }
 });
 
-module.exports = userRouter;
+module.exports = signInRouter;
