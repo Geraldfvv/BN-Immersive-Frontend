@@ -1,8 +1,9 @@
 const express = require("express");
+const userValidate = require("../middleware/signIn.middleware.js");
 const SignInService = require("../services/signIn.service");
 const userRouter = express.Router();
 
-userRouter.route("/").post(async (req, res, next) => {
+userRouter.route("/").post(userValidate, async (req, res, next) => {
   const data = req.body;
 
   try {

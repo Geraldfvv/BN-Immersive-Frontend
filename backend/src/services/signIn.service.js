@@ -1,5 +1,6 @@
 const throwError = require("../helpers/error.helper");
 const { db } = require("../config/connection.config");
+
 const Users = db.collection("Users");
 
 class SignInService {
