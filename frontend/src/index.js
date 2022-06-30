@@ -4,9 +4,9 @@ import "../src/styles/styles.scss";
 
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Landing } from "./pages/Landig/Landing";
-import { App } from "./App";
 
+import { App } from "./App";
+import { Landing } from "./pages/Landing/Landing";
 import { SignIn } from "./pages/SignIn/SignIn";
 
 
