@@ -10,27 +10,35 @@ export const Landing = () => {
     },
     {
       title: "Home Loans",
-      img: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      img: "https://cdn.mozo.com.au/redactor/pictures/9653/home-loan-features_original.jpg",
     },
     {
       title: "Auto Loans",
-      img: "https://wallpaperaccess.com/full/2666312.jpg",
+      img: "https://www1.bac-assets.com/auto-loans/spa-assets/images/assets-images-site-auto-loans-article-engagement-auto-module-How_Car_Loans_Work_640x300-CSX22fe7dc4.jpg",
     },
     {
       title: "Savings",
-      img: "https://www.suomenpankki.fi/globalassets/fi/suomen_pankki/vastuullisuus/kuvat/vastuullisuus-vastuullinen-sijoittaminen-saastaminen-1920x1080.jpg",
+      img: "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/in/wp-content/uploads/2022/06/pexels-sakchai-ruenkam-6983167-Cropped-scaled.jpg",
     },
   ];
 
   return (
     <div className={`${block}__root`}>
-      <Hero></Hero>
-
+      <section>
+        <Hero></Hero>
+      </section>
+      
       <section className={`${block}__services-section`}>
         <h2 className={`${block}__title`}>Products & Services</h2>
         <div className={`${block}__services`}>
           {services.map((service) => {
-            return <CardLearnMore title={service.title} img={service.img} />;
+            return (
+              <CardLearnMore
+                title={service.title}
+                img={service.img}
+                key={service.title}
+              />
+            );
           })}
         </div>
       </section>
