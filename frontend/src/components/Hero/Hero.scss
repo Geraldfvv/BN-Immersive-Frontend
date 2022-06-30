@@ -1,8 +1,47 @@
 .hero {
   &__root {
     display: flex;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 0;
+
+    background-position: 100% 0;
+    background-image: linear-gradient(
+        to left ,
+        rgba(255, 255, 255, 0.4),
+        $color-primary
+      ),
+      url("https://img.freepik.com/free-photo/happy-family-using-computer-credit-card-home_568137-430.jpg?w=2000");
+
+    background-size: cover;
+    border-radius: 0 0 15rem 0;
+    box-shadow: $shadow;
+
+    @media (min-width:$br-tablet) {
+      border-radius: 0 0 40rem 0;
+      height: 35rem;
+    }
   }
 
+  &__content {
+    @include container(100%, 50%, 50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+    @include fade-up;
+  }
 
+  &__buttton {
+    @include button-styles;
+  }
+
+  &__title {
+    text-align: center;
+    padding: 0 3rem;
+    @include title($color-ternary, 700, 2.5rem, 3rem, 4rem);
+  }
 }

@@ -5,13 +5,16 @@ import "../src/styles/styles.scss";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Landing } from "./pages/Landig/Landing";
+import { App } from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Landing />}></Route>
+        <Route path='/' element={<App />}>
+          <Route path='/' element={<Landing />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

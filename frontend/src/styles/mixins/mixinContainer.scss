@@ -1,0 +1,11 @@
+@mixin container($mobile, $tablet, $desktop) {
+  width: $mobile;
+
+  @media (min-width: $br-tablet) {
+    width: $tablet;
+  }
+
+  @media (min-width: $br-desktop) {
+    width: $desktop;
+  }
+}

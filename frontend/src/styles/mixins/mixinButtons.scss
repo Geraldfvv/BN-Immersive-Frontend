@@ -1,0 +1,74 @@
+@mixin button-styles {
+  &__root {
+    padding: 1rem 1.5rem;
+    width: 10rem;
+    border: none;
+    border-radius: 1.1rem;
+    z-index: 1;
+    position: relative;
+    font-weight: 1000;
+    font-size: 1rem;
+    transition: all 100ms;
+    text-decoration: none;
+    text-align: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-radius: 1rem;
+      z-index: -1;
+      transition: all 250ms;
+    }
+    
+    &:hover::before {
+      width: 100%;
+    }
+    
+    
+  }
+
+  &--primary {
+    color: $color-primary;
+    background-color: $color-secondary;
+
+    &::before {
+      background-color: $color-ternary;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &--secondary {
+    color: $color-primary;
+    background-color: $color-ternary;
+
+    &::before {
+      background-color: $color-secondary;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &--ternary {
+    color: $color-primary;
+    background-color: $color-secondary;
+
+    &::before {
+      color: $color-ternary;
+      background-color: $color-primary;
+    }
+
+    &:hover {
+      color: $color-ternary;
+      cursor: pointer;
+    }
+  }
+}

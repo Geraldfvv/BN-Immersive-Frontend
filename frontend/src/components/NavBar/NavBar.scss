@@ -1,0 +1,20 @@
+.nav-bar {
+  &__root {
+    background-color: $color-white;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__img{
+    height: 4rem;
+    margin: 0.5rem;
+  }
+
+  &__buttons{
+    display: flex;
+    margin: 0 1rem;
+    align-items: center;
+    gap: 1rem;
+  }
+}

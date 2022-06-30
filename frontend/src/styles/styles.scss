@@ -1,7 +1,21 @@
+//Variables
+@import "./variables.scss";
+
+//Mixins
+@import "./mixins/mixinContainer.scss";
+@import "./mixins/mixinButtons.scss";
+@import "./mixins/mixinTitles.scss";
+@import "./mixins/animations/mixinFadeUp.scss";
+
+//Base
 @import "./base.scss";
 
 //Components
+@import "../components/Button/Button.scss";
+@import "../components/AnchorBtn/AnchorBtn.scss";
 @import "../components/Hero/Hero.scss";
+@import "../components/NavBar/NavBar.scss";
+@import "../components/Cards/CardLearnMore/CardLearnMore.scss";
 
 //Pages
 @import "../pages/Landig/Landing.scss";

@@ -1,0 +1,13 @@
+@mixin title($color, $weight, $size-mobile, $size-tablet, $size-desktop) {
+  color: $color;
+  font-weight: $weight;
+  font-size: $size-mobile;
+
+  @media (min-width: $br-tablet) {
+    font-size: $size-tablet;
+  }
+
+  @media (min-width: $br-desktop) {
+    font-size: $size-desktop;
+  }
+}
