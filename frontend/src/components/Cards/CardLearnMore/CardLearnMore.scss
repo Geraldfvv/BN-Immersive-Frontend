@@ -7,7 +7,7 @@
     box-shadow: $shadow;
     opacity: 0;
     transform:translateX(-50%);
-    transition: 0.8s;
+    transition: all 0.3s ease-in-out;
     margin: 0.5rem 0;
 
     &:before {

@@ -1,7 +1,10 @@
 import { CardLearnMore } from "../../components/Cards/CardLearnMore/CardLearnMore";
 import { Hero } from "../../components/Hero/Hero";
+import { useGoToSection } from "../../hooks/useGoToSection";
+
 export const Landing = () => {
   const block = "landing";
+  useGoToSection();
 
   const services = [
     {
@@ -27,8 +30,8 @@ export const Landing = () => {
       <section>
         <Hero></Hero>
       </section>
-      
-      <section className={`${block}__services-section`}>
+
+      <section className={`${block}__services-section`} id='products'>
         <h2 className={`${block}__title`}>Products & Services</h2>
         <div className={`${block}__services`}>
           {services.map((service) => {

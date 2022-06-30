@@ -62,12 +62,12 @@
     background-color: $color-secondary;
 
     &::before {
-      color: $color-ternary;
-      background-color: $color-primary;
+      color: $color-primary;
+      background-color: $color-ternary;
     }
 
     &:hover {
-      color: $color-ternary;
+      color: $color-primary;
       cursor: pointer;
     }
   }

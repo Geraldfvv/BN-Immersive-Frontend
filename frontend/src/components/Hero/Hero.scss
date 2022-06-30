@@ -3,14 +3,13 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 30rem;
+    height: 25rem;
     justify-content: flex-start;
-    align-items: center;
-    padding: 2rem 0;
-
+    align-items: flex-start;
+    margin: 5rem 0 0 0;
     background-position: 100% 0;
     background-image: linear-gradient(
-        to left ,
+        to top,
         rgba(255, 255, 255, 0.4),
         $color-primary
       ),
@@ -20,9 +19,9 @@
     border-radius: 0 0 15rem 0;
     box-shadow: $shadow;
 
-    @media (min-width:$br-tablet) {
-      border-radius: 0 0 40rem 0;
-      height: 35rem;
+    @media (min-width: $br-tablet) {
+      border-radius: 0 0 30rem 0;
+      height: 37rem;
     }
   }
 

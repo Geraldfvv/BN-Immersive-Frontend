@@ -1,0 +1,48 @@
+@mixin forms {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $color-white;
+  padding: 3rem;
+  margin: 3rem;
+  border-radius: 3rem 0 3rem 0;
+  box-shadow: $shadow;
+  gap: 1rem 1rem;
+
+  &__input-label {
+    height: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    &--33 {
+      @include container(100%, calc(50% - 1rem), calc(33.33% - 2rem));
+    }
+
+    &--25 {
+      @include container(100%, calc(50% - 1rem), calc(25% - 2rem));
+    }
+  }
+
+  &__label {
+    width: 100%;
+    @include title($color-primary, 600, 1rem, 1.5rem, 1.5rem);
+  }
+
+  &__input {
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    padding: 1rem 0;
+    border: 0.125rem solid $color-primary;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__button-container {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+  }
+
+  &__error {
+    color: red;
+  }
+}

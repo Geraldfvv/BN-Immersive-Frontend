@@ -1,14 +1,17 @@
 import { AnchorBtn } from "../../components/AnchorBtn/AnchorBtn";
-import logo from "../../assets/logo.png";
+import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
+
+import logo1 from "../../assets/logo1.png";
 
 export const NavBar = () => {
   const block = "nav-bar";
   return (
     <div className={`${block}__root`}>
-      <img src={logo} className={`${block}__img`} alt='Banco Nacional Logo' />
+      <AnchorImg img={logo1} alt='company logo' url='/'></AnchorImg>
+
       <div className={`${block}__buttons`}>
-        <AnchorBtn theme='ternary' text='Sign In' url='#'/>
-        <AnchorBtn theme='ternary' text='Log In' url='#'/>
+        <AnchorBtn theme='ternary' text='Sign In' url='/signin' />
+        <AnchorBtn theme='ternary' text='Log In' url='#' />
       </div>
     </div>
   );

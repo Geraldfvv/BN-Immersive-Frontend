@@ -1,14 +1,12 @@
 .nav-bar {
   &__root {
-    background-color: $color-white;
+    background-color: $color-primary;
     height: 5rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-  }
-
-  &__img{
-    height: 4rem;
-    margin: 0.5rem;
+    position: fixed;
+    z-index: 2;
   }
 
   &__buttons{
