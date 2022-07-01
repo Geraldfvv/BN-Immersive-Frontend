@@ -1,7 +1,7 @@
-@mixin fade-up {
+@mixin fade-up($seconds) {
   opacity: 0;
   transform: translate3d(0, 40px, 0);
-  animation: fadeUp 1.2s cubic-bezier(0.65, 0.05, 0.36, 1) 0s 1 forwards;
+  animation: fadeUp $seconds cubic-bezier(0.65, 0.05, 0.36, 1) 0s 1 forwards;
 }
 
 @keyframes fadeUp {
@@ -11,6 +11,17 @@
 
   to {
     transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@mixin fade($seconds) {
+  opacity: 0;
+  animation: fade $seconds forwards;
+}
+
+@keyframes fade {
+  to {
     opacity: 1;
   }
 }

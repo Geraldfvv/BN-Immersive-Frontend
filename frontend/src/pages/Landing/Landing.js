@@ -1,6 +1,7 @@
+import { useGoToSection } from "../../utils/hooks/useGoToSection";
+
 import { CardLearnMore } from "../../components/Cards/CardLearnMore/CardLearnMore";
 import { Hero } from "../../components/Hero/Hero";
-import { useGoToSection } from "../../utils/hooks/useGoToSection";
 import { landingServices } from "../../utils/constants";
 
 export const Landing = () => {

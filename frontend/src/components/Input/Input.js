@@ -14,7 +14,7 @@ export const Input = (props) => {
   return (
     <div className={`${block}__input-label ${block}__input-label--${size}`}>
       <label htmlFor={id} className={`${block}__label`}>
-        {label}
+        {label} <span className={`${block}__error`}>{error}</span>
       </label>
       <input
         id={id}
@@ -27,7 +27,7 @@ export const Input = (props) => {
           handleFormChange(e);
         }}
       />
-      <span className={`${block}__error`}>{error}</span>
+      
     </div>
   );
 };

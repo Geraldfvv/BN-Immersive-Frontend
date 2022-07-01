@@ -1,53 +1,36 @@
 import { Input } from "../../Input/Input";
-import { Select } from "../../Select/Select";
-import { incomeOptions } from "../../../utils/constants";
 
-export const AccountInfo = ({
-  formData,
-  handleFormChange,
-  handleImageChange,
-  errors,
-}) => {
-  const block = "personal-info";
+export const AccountInfo = ({ formData, handleFormChange, errors }) => {
+  const block = "account-info";
   return (
     <div className={`${block}__root`}>
       <form className={`${block}__form`}>
         <Input
           type='text'
-          label='Full Name'
-          value={formData.fullName}
+          label='Email'
+          value={formData.email}
           handleFormChange={handleFormChange}
-          error={errors.fullName ? errors.fullName : ""}
-          placeholder='John Doe'
-          id='fullName'
+          error={errors.email ? errors.email : ""}
+          placeholder='example@email.com'
+          id='email'
         />
 
         <Input
-          type='number'
-          label='ID Number'
-          value={formData.id}
+          type='password'
+          label='Password'
+          value={formData.password}
           handleFormChange={handleFormChange}
-          error={errors.id ? errors.id : ""}
-          placeholder='112347890'
-          id='id'
+          error={errors.password ? errors.password : ""}
+          id='password'
         />
 
         <Input
-          type='file'
-          label='ID Photo'
-          handleFormChange={handleImageChange}
-          error={errors.idPhoto ? errors.idPhoto : ""}
-          accept='image/*'
-          id='idPhoto'
-        />
-
-        <Select
-          label='Income Source'
+          type='password'
+          label='Confirm Password'
+          value={formData.confirmPassword}
           handleFormChange={handleFormChange}
-          value={formData.income}
-          id='income'
-          error={errors.income ? errors.income : ""}
-          options ={incomeOptions}
+          error={errors.confirmPassword ? errors.confirmPassword : ""}
+          id='confirmPassword'
         />
       </form>
     </div>

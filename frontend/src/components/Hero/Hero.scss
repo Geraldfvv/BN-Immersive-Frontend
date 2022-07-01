@@ -31,8 +31,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
-    @include fade-up;
-  }
+    @include fade-up(1s);  }
 
   &__buttton {
     @include button-styles;

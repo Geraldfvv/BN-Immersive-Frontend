@@ -6,10 +6,12 @@
   margin: 3rem;
   border-radius: 3rem 0 3rem 0;
   box-shadow: $shadow;
+  @include fade(1s);
   width: 100%;
 
+
   &__input-label {
-    height: 7rem;
+    height: 6rem;
     margin: 0 3rem;
     display: flex;
     flex-wrap: wrap;
