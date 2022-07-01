@@ -1,5 +1,6 @@
 export const Input = (props) => {
-  const { type, label, value, handleFormChange, id, error ,size} = props;
+  const { type, label, value, handleFormChange, id, error, size, accept } =
+    props;
   const block = "input";
   return (
     <div className={`${block}__input-label ${block}__input-label--${size}`}>
@@ -12,6 +13,7 @@ export const Input = (props) => {
         type={type}
         placeholder={`${label}...`}
         value={value}
+        accept={accept ? accept : ""}
         onChange={(e) => {
           handleFormChange(e);
         }}

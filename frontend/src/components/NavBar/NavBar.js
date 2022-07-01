@@ -10,8 +10,8 @@ export const NavBar = () => {
       <AnchorImg img={logo1} alt='company logo' url='/'></AnchorImg>
 
       <div className={`${block}__buttons`}>
-        <AnchorBtn theme='ternary' text='Sign In' url='/signin' />
-        <AnchorBtn theme='ternary' text='Log In' url='#' />
+        <AnchorBtn theme='primary' text='Sign In' url='/signin' />
+        <AnchorBtn theme='primary' text='Log In' url='#' />
       </div>
     </div>
   );

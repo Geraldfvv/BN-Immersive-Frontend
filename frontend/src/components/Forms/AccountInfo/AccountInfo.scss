@@ -1,0 +1,19 @@
+.personal-info {
+  @include forms;
+
+  &__input-image {
+    border-radius: 0.5rem;
+    display: flex;
+    margin: 0.5rem;
+    padding: 1rem 0;
+    border: 0.125rem solid $color-primary;
+    text-indent: 1rem; 
+    width: 100%;
+    height: auto;
+  }
+
+  &__preview {
+    height: 5rem;
+    width: 5rem;
+  }
+}

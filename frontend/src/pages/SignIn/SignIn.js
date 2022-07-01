@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 import logo from "../../assets/logo.png";
 import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
-import { Input } from "../../components/Input/Input";
+import { AccountInfo } from "../../components/Forms/AccountInfo/AccountInfo";
+import { Button } from "../../components/Button/Button";
 
 export const SignIn = () => {
   const block = "sign-in";
+  const formTitles = ["Personal Information", "Account Information"];
   const initialState = {
     fullName: "",
     id: "",
@@ -16,12 +19,47 @@ export const SignIn = () => {
     confirmPassword: "",
   };
 
+  const [formPage, setFormPage] = useState(0);
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
+  const [visible, setVisible] = useState();
+
+  const content = useRef();
+  const onScreen = useOnScreen(content);
+
+  useEffect(() => {
+    if (onScreen) {
+      setVisible(`${block}--visible`);
+    }
+  }, [onScreen]);
 
   const handleFormChange = (event) => {
     const value = event.target.value;
     setFormData({ ...formData, [event.target.id]: value });
+  };
+
+  const pageDisplay = () => {
+    if (formPage === 0) {
+      return (
+        <AccountInfo
+          formData={formData}
+          errors={formErrors}
+          handleFormChange={handleFormChange}
+        />
+      );
+    }
+  };
+
+  const handlePrevious = () => {
+    setFormPage((formPage) => formPage - 1);
+  };
+
+  const handleNext = async () => {
+    if (formPage !== formTitles.length - 1) {
+      setFormPage((formPage) => formPage + 1);
+    } else {
+      console.log("send");
+    }
   };
 
   return (
@@ -29,90 +67,50 @@ export const SignIn = () => {
       <div className={`${block}__header`}>
         <AnchorImg img={logo} alt='company logo' url='/'></AnchorImg>
       </div>
-      <div className={`${block}__root`}>
+      <div className={`${block}__root ${visible}`} ref={content}>
         <h1 className={`${block}__title`}>Let's get you enrolled</h1>
         <h2 className={`${block}__subtitle`}>
           First, we need some information from you.
         </h2>
-        <form className={`${block}__form`}>
-          {/* Full Name */}
-          <Input
-            type='text'
-            label='Full name'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={25}
-            id='fullname'
-          ></Input>
 
-          {/* Id Number */}
-          <Input
-            type='text'
-            label='ID Number'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={25}
-            id='fullname'
-          ></Input>
+        <div className={`${block}__form`}>
+          <div className={`${block}__header`}>
+            <div className={`${block}__stepper`}>
+              {formTitles.map((step, i) => {
+                return (
+                  <span
+                    key={i}
+                    aria-label={`step ${i + 1}`}
+                    className={`${block}__step ${
+                      i === formPage ? `${block}__step--active` : ""
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
+                );
+              })}
+            </div>
 
-          {/* ID Photo */}
-          <Input
-            type='text'
-            label='ID Front Face'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={25}
-            id='fullname'
-          ></Input>
+            <h2 className={`${block}__subtitle`}>{formTitles[formPage]}</h2>
+          </div>
 
-          {/* Source of income */}
-          <Input
-            type='text'
-            label='Source of income'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={25}
-            id='fullname'
-          ></Input>
+          <div className={`${block}__body`}>{pageDisplay()}</div>
 
-          {/* Email */}
-          <Input
-            type='text'
-            label='Email'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={33}
-            id='fullname'
-          ></Input>
+          <div className={`${block}__footer`}>
+            <Button
+              theme={"ternary"}
+              text={"Previous"}
+              disabled={formPage === 0}
+              handleClick={handlePrevious}
+            ></Button>
 
-          {/* Password */}
-          <Input
-            type='text'
-            label='Password'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={33}
-            id='fullname'
-          ></Input>
-
-          {/* Confirm Password */}
-          <Input
-            type='text'
-            label='Confirm Password'
-            value={formData.fullName}
-            handleFormChange={handleFormChange}
-            error={formErrors.fullName ? formErrors.fullName : ""}
-            size={33}
-            id='fullname'
-          ></Input>
-
-        </form>
+            <Button
+              theme={"ternary"}
+              text={formPage === formTitles.length - 1 ? "Submit" : "Next"}
+              handleClick={handleNext}
+            ></Button>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -1,8 +1,6 @@
 .sign-in {
   &__root {
     width: 100%;
-    height: 100%;
-    padding: 5rem 0 4rem 0;
     background-position: 100% 0;
     background-size: cover;
     background-image: linear-gradient(
@@ -10,9 +8,16 @@
       rgba(255, 255, 255, 0.4),
       $color-primary
     );
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 6rem ;
+    gap: 1rem 0;
+
+    @include fade-up;
   }
 
-  &__header {
+  &__nav {
     width: 100%;
     height: 5rem;
     background-color: $color-white;
@@ -21,6 +26,7 @@
   }
 
   &__title {
+    width: 100%;
     text-align: center;
     margin: 0.5rem;
     padding: 0 3rem;
@@ -28,13 +34,48 @@
   }
 
   &__subtitle {
+    width: 100%;
     text-align: center;
     margin: 0.5rem;
-    padding: 0 3rem;
     @include title($color-primary, 500, 1rem, 1.5rem, 1.5rem);
   }
 
-  &__form {
-    @include forms;
+  &__form{
+    @include container(90%,60%,50%);
+    border-radius: 4rem 0 4rem 0; 
+    justify-self: center;
+    background-color: $color-white;
+    box-shadow: $shadow;
+  }
+
+  &__stepper {
+    display: flex;
+    margin: 1rem 0;
+    justify-content: center;
+  }
+
+  &__step {
+    padding: 0.6rem 1rem;
+    margin:  0 1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    background-color: $color-primary;
+    color: $color-secondary;
+
+    &--active {
+      background-color: $color-secondary;
+      color: $color-primary;
+    }
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    gap: 1rem;
   }
 }

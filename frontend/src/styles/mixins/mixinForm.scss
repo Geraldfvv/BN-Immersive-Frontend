@@ -6,25 +6,22 @@
   margin: 3rem;
   border-radius: 3rem 0 3rem 0;
   box-shadow: $shadow;
-  gap: 1rem 1rem;
+  width: 100%;
 
   &__input-label {
     height: 7rem;
+    margin: 0 3rem;
     display: flex;
     flex-wrap: wrap;
 
-    &--33 {
-      @include container(100%, calc(50% - 1rem), calc(33.33% - 2rem));
-    }
-
-    &--25 {
-      @include container(100%, calc(50% - 1rem), calc(25% - 2rem));
+    &--50 {
+      @include container(100%, 100%, 50%);
     }
   }
 
   &__label {
     width: 100%;
-    @include title($color-primary, 600, 1rem, 1.5rem, 1.5rem);
+    @include title($color-primary, 400, 1rem, 1rem, 1rem);
   }
 
   &__input {
@@ -32,8 +29,14 @@
     margin: 0.5rem;
     padding: 1rem 0;
     border: 0.125rem solid $color-primary;
-    text-align: center;
+    text-indent: 1rem;
     width: 100%;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   &__button-container {
