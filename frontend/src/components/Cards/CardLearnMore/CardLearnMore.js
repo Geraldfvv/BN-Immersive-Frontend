@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useOnScreen } from "../../../hooks/useOnScreen";
+import { useOnScreen } from "../../../utils/hooks/useOnScreen";
 
 export const CardLearnMore = (props) => {
   const { img, title } = props;
