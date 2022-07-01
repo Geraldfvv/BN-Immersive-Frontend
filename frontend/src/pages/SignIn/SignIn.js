@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useOnScreen } from "../../hooks/useOnScreen";
+import { useOnScreen } from "../../utils/hooks/useOnScreen";
 
 import logo from "../../assets/logo.png";
 import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
@@ -38,6 +38,14 @@ export const SignIn = () => {
     setFormData({ ...formData, [event.target.id]: value });
   };
 
+  const handleImageChange = (event) => {
+    if (!event.target.files || event.target.files.length === 0) {
+      setFormData({ ...formData, idPhoto: "" });
+      return;
+    }
+    setFormData({ ...formData, idPhoto: event.target.files[0] });
+  };
+
   const pageDisplay = () => {
     if (formPage === 0) {
       return (
@@ -45,6 +53,7 @@ export const SignIn = () => {
           formData={formData}
           errors={formErrors}
           handleFormChange={handleFormChange}
+          handleImageChange={handleImageChange}
         />
       );
     }
@@ -55,6 +64,7 @@ export const SignIn = () => {
   };
 
   const handleNext = async () => {
+    console.log(formData)
     if (formPage !== formTitles.length - 1) {
       setFormPage((formPage) => formPage + 1);
     } else {

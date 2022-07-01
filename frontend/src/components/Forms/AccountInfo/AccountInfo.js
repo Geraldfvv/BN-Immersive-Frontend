@@ -1,6 +1,13 @@
 import { Input } from "../../Input/Input";
+import { Select } from "../../Select/Select";
+import { incomeOptions } from "../../../utils/constants";
 
-export const AccountInfo = ({ formData, handleFormChange, errors }) => {
+export const AccountInfo = ({
+  formData,
+  handleFormChange,
+  handleImageChange,
+  errors,
+}) => {
   const block = "personal-info";
   return (
     <div className={`${block}__root`}>
@@ -11,6 +18,7 @@ export const AccountInfo = ({ formData, handleFormChange, errors }) => {
           value={formData.fullName}
           handleFormChange={handleFormChange}
           error={errors.fullName ? errors.fullName : ""}
+          placeholder='John Doe'
           id='fullName'
         />
 
@@ -20,17 +28,26 @@ export const AccountInfo = ({ formData, handleFormChange, errors }) => {
           value={formData.id}
           handleFormChange={handleFormChange}
           error={errors.id ? errors.id : ""}
+          placeholder='112347890'
           id='id'
         />
 
         <Input
           type='file'
           label='ID Photo'
-          value={formData.idPhoto}
-          handleFormChange={handleFormChange}
+          handleFormChange={handleImageChange}
           error={errors.idPhoto ? errors.idPhoto : ""}
           accept='image/*'
           id='idPhoto'
+        />
+
+        <Select
+          label='Income Source'
+          handleFormChange={handleFormChange}
+          value={formData.income}
+          id='income'
+          error={errors.income ? errors.income : ""}
+          options ={incomeOptions}
         />
       </form>
     </div>
