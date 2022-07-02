@@ -17,8 +17,8 @@ signInValidate = async (req, res, next) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   const incomeSourceEnum = [
     "salaried",
-    "bussines-owner",
-    "self-employed",
+    "bussinesOwner",
+    "selfEmployed",
     "retired",
     "investor",
     "other",

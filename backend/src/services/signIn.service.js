@@ -9,9 +9,9 @@ class SignInService {
     const { fullName, id, idPhoto, incomeSource, email, password } = data;
     await Users.add({ fullName, id, idPhoto, incomeSource, email, password })
       .then(() => {
-        const accountCRC = { owner: id, currency: "₡", balance: 0 , code: "CR" };
+        const accountCRC = { owner: id, currency: "₡", balance: 0, code: "CR" };
         AccountService.addAccount(accountCRC);
-        const accountUSD = { owner: id, currency: "$", balance: 0 , code: "US"};
+        const accountUSD = { owner: id, currency: "$", balance: 0, code: "US" };
         AccountService.addAccount(accountUSD);
       })
       .catch(() => {
