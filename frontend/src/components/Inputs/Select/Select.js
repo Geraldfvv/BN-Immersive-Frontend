@@ -1,19 +1,11 @@
 export const Select = (props) => {
   const block = "select";
-  const {
-    label,
-    value,
-    handleFormChange,
-    id,
-    error,
-    size,
-    options,
-  } = props;
+  const { label, value, handleFormChange, id, error, size, options } = props;
 
   return (
     <div className={`${block}__input-label ${block}__input-label--${size}`}>
-      <label htmlFor={id} className={`${block}__label`}>
-        {label}
+      <label htmlFor={id} className={`${block}__label ${error ? `${block}__label--error` : "" }`}>
+        {label} <span className={`${block}__error`}>{error}</span>
       </label>
 
       <select
@@ -21,9 +13,9 @@ export const Select = (props) => {
         name={id}
         value={value}
         onChange={handleFormChange}
-        className={`${block}__input`}
+        className={`${block}__input ${error ? `${block}__input--error` : "" }`}
       >
-        <option value=""> -- Select -- </option>
+        <option value=''> -- Select -- </option>
         {options.map((option) => {
           return (
             <option value={option.value} key={option.value}>
@@ -32,8 +24,6 @@ export const Select = (props) => {
           );
         })}
       </select>
-
-      <span className={`${block}__error`}>{error}</span>
     </div>
   );
 };

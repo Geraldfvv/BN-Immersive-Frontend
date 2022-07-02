@@ -6,19 +6,21 @@ export const Input = (props) => {
     handleFormChange,
     id,
     error,
-    size,
     accept,
     placeholder = "",
   } = props;
   const block = "input";
   return (
-    <div className={`${block}__input-label ${block}__input-label--${size}`}>
-      <label htmlFor={id} className={`${block}__label`}>
+    <div className={`${block}__input-label`}>
+      <label
+        htmlFor={id}
+        className={`${block}__label ${error ? `${block}__label--error` : ""}`}
+      >
         {label} <span className={`${block}__error`}>{error}</span>
       </label>
       <input
         id={id}
-        className={`${block}__input`}
+        className={`${block}__input ${error ? `${block}__input--error` : ""}`}
         type={type}
         placeholder={placeholder}
         value={value}
@@ -27,7 +29,6 @@ export const Input = (props) => {
           handleFormChange(e);
         }}
       />
-      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Input } from "../../Input/Input";
+import { Input } from "../../Inputs/Input/Input";
 
 export const AccountInfo = ({ formData, handleFormChange, errors }) => {
   const block = "account-info";
@@ -14,6 +14,12 @@ export const AccountInfo = ({ formData, handleFormChange, errors }) => {
           placeholder='example@email.com'
           id='email'
         />
+
+        <p className={`${block}__requirements`}>Password requirements</p>
+        <ul className={`${block}__requirements`}>
+          <li>Must be 8 characters long.</li>
+          <li>Must include lowercase, uppercase and number.</li>
+        </ul>
 
         <Input
           type='password'

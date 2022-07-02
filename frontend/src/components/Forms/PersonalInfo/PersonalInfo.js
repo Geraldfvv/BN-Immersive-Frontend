@@ -1,5 +1,5 @@
-import { Input } from "../../Input/Input";
-import { Select } from "../../Select/Select";
+import { Input } from "../../Inputs/Input/Input";
+import { Select } from "../../Inputs/Select/Select";
 import { incomeOptions } from "../../../utils/constants";
 
 export const PersonalInfo = ({
@@ -44,9 +44,9 @@ export const PersonalInfo = ({
         <Select
           label='Income Source'
           handleFormChange={handleFormChange}
-          value={formData.income}
-          id='income'
-          error={errors.income ? errors.income : ""}
+          value={formData.incomeSource}
+          id='incomeSource'
+          error={errors.incomeSource ? errors.incomeSource : ""}
           options ={incomeOptions}
         />
       </form>

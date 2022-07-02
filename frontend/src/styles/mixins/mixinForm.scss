@@ -9,7 +9,6 @@
   @include fade(1s);
   width: 100%;
 
-
   &__input-label {
     height: 6rem;
     margin: 0 3rem;
@@ -23,7 +22,18 @@
 
   &__label {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
     @include title($color-primary, 400, 1rem, 1rem, 1rem);
+
+    &--error {
+      color: red;
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: smaller;
   }
 
   &__input {
@@ -39,15 +49,15 @@
       -webkit-appearance: none;
       margin: 0;
     }
+
+    &--error {
+      border: 0.125rem solid red;
+    }
   }
 
   &__button-container {
     display: flex;
     width: 50%;
     justify-content: center;
-  }
-
-  &__error {
-    color: red;
   }
 }

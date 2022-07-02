@@ -1,15 +1,19 @@
+// Functions
 import { useState, useEffect, useRef } from "react";
+import { Link , useNavigate } from "react-router-dom";
+import { formValidator } from "../../utils/validation/signInValidation";
+// Hooks
 import { useGoToSection } from "../../utils/hooks/useGoToSection";
 import { useOnScreen } from "../../utils/hooks/useOnScreen";
-
-//Components
+// Components
 import logo from "../../assets/logo1.png";
 import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
 import { Button } from "../../components/Button/Button";
-
-//Forms
+// Forms
 import { PersonalInfo } from "../../components/Forms/PersonalInfo/PersonalInfo";
 import { AccountInfo } from "../../components/Forms/AccountInfo/AccountInfo";
+//Service
+import { signIn } from "../../services/signInService";
 
 export const SignIn = () => {
   const block = "sign-in";
@@ -18,20 +22,23 @@ export const SignIn = () => {
     fullName: "",
     id: "",
     idPhoto: "",
-    income: "",
+    incomeSource: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
+
+  const content = useRef();
+  const navigate = useNavigate();
+  const onScreen = useOnScreen(content);
+  useGoToSection();
 
   const [formPage, setFormPage] = useState(0);
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [visible, setVisible] = useState();
 
-  const content = useRef();
-  const onScreen = useOnScreen(content);
-  useGoToSection();
+
 
   useEffect(() => {
     if (onScreen) {
@@ -78,26 +85,50 @@ export const SignIn = () => {
   };
 
   const handleNext = async () => {
-    console.log(formData);
-    if (formPage !== formTitles.length - 1) {
-      setFormPage((formPage) => formPage + 1);
+    const errors = formValidator(formData, formPage);
+    if (Object.keys(errors).length === 0) {
+      setFormErrors(errors);
+      if (formPage !== formTitles.length - 1) {
+        setFormPage((formPage) => formPage + 1);
+      } else {
+        handleSubmit();
+      }
     } else {
-      console.log("send");
+      setFormErrors(errors);
     }
+  };
+
+  const handleSubmit = () => {
+    signIn(formData).then((response) => {
+      if (response.status === 200) {
+        setFormData(initialState);
+        setFormPage(0);
+        navigate("/login");
+      } else {
+        setFormErrors(response.errors);
+        if (response.errors.id !== undefined) {
+          setFormPage(0);
+        }
+      }
+    });
   };
 
   return (
     <>
-      <div className={`${block}__root ${visible}`} ref={content}>
-        <div className={`${block}__section`}>
+      <main className={`${block}__root ${visible}`} ref={content}>
+        <section className={`${block}__section`}>
           <AnchorImg img={logo} alt='company logo' url='/'></AnchorImg>
-          <h1 className={`${block}__title`}>Let's get you enrolled</h1>
-          <h2 className={`${block}__subtitle ${block}__subtitle--white`}>
+          <span className={`${block}__title`}>Let's get you enrolled</span>
+          <span className={`${block}__subtitle ${block}__subtitle--white`}>
             First, we need some information from you.
-          </h2>
-        </div>
+          </span>
 
-        <div className={`${block}__section`}>
+          <Link to='/login' className={`${block}__link`}>
+            Already have an account?
+          </Link>
+        </section>
+
+        <section className={`${block}__section`}>
           <div className={`${block}__form`}>
             <div className={`${block}__header`}>
               <div className={`${block}__stepper`}>
@@ -105,7 +136,6 @@ export const SignIn = () => {
                   return (
                     <span
                       key={i}
-                      aria-label={`step ${i + 1}`}
                       className={`${block}__step ${
                         i === formPage ? `${block}__step--active` : ""
                       }`}
@@ -136,8 +166,8 @@ export const SignIn = () => {
               ></Button>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 };

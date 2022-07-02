@@ -34,6 +34,11 @@
     @include fade(1s);
   }
 
+  &__link{
+    margin-top: 3rem;
+    @include title($color-white, 700, 1.3rem, 1.3rem, 1.3rem);
+  }
+
   &__title {
     width: 100%;
     margin: 0;
