@@ -9,43 +9,29 @@ export const showMessage = (title, type) => {
     icon: type,
     title: title,
     customClass: {
-      popup: "popup-class",
-      icon: "icon-class",
+      popup: "popup",
+      icon: "icon",
     },
   });
   Toast.fire();
 };
 
-export const proceedPayment = () => {
-  let timerInterval;
-  return Swal.fire({
-    title: "Payment is being processed",
-    timer: 4000,
+export const loader = (title) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    title: title,
     didOpen: () => {
-      Swal.showLoading();
+      Swal.showLoading()
     },
-    willClose: () => {
-      clearInterval(timerInterval);
+    customClass: {
+      popup: "popup",
+      icon: "icon",
     },
   });
-};
-
-export const purchasConfirmation = () => {
-  Swal.fire({
-    title: "Thank you for your purchase",
-    width: 600,
-    padding: "3em",
-  });
-};
-
-export const confirmation = (msg) => {
-  return Swal.fire({
-    title: "Do you want to save the changes?",
-    showDenyButton: true,
-    showCancelButton: true,
-    confirmButtonText: "Save",
-    denyButtonText: `Don't save`,
-  });
+  Toast.fire();
 };
 
 // .then((result) => {

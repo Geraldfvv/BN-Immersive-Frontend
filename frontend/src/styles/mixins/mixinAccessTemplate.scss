@@ -1,4 +1,4 @@
-.sign-in {
+@mixin access-template($image) {
   &__root {
     width: 100%;
     background-position: -10% 70%;
@@ -8,7 +8,7 @@
         rgba(255, 255, 255, 0.4),
         $color-primary
       ),
-      url("../../assets/back.png");
+      $image;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,8 +20,30 @@
           rgba(25, 1, 1, 0.7),
           $color-primary
         ),
-        url("../../assets/back.png");
+        $image;
     }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__footer {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
   }
 
   &__section {
@@ -34,7 +56,7 @@
     @include fade(1s);
   }
 
-  &__link{
+  &__link {
     margin-top: 3rem;
     @include title($color-white, 700, 1.3rem, 1.3rem, 1.3rem);
   }
@@ -59,67 +81,5 @@
     &--secondary {
       @include title($color-secondary, 500, 1rem, 1.5rem, 1.5rem);
     }
-  }
-
-  &__form {
-    width: 95%;
-    height: 90vh;
-    border-radius: 4rem 0 4rem 0;
-    background-color: $color-white;
-    box-shadow: $shadow;
-    margin-top: 2rem;
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    @include fade(1s);
-
-    @media (min-width: $br-desktop) {
-      margin: 0;
-    }
-  }
-
-  &__header {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-  }
-
-  &__stepper {
-    display: flex;
-    margin: 1rem 0;
-    justify-content: center;
-  }
-
-  &__step {
-    padding: 0.6rem 1rem;
-    margin: 0 1rem;
-    border-radius: 50%;
-    font-weight: bold;
-    background-color: $color-primary;
-    color: $color-secondary;
-
-    &--active {
-      background-color: $color-secondary;
-      color: $color-primary;
-    }
-  }
-
-  &__body {
-    width: 100%;
-  }
-
-  &__footer {
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    margin-bottom: 1rem;
-    gap: 1rem;
   }
 }

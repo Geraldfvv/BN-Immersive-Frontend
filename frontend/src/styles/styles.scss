@@ -1,15 +1,19 @@
+//Base
+@import "./base.scss";
+
 //Variables
 @import "./variables.scss";
+
+//Alerts
+@import "./alerts.scss";
 
 //Mixins
 @import "./mixins/mixinContainer.scss";
 @import "./mixins/mixinButtons.scss";
 @import "./mixins/mixinTitles.scss";
 @import "./mixins/mixinForm.scss";
+@import "./mixins/mixinAccessTemplate.scss";
 @import "./mixins/animations/mixinFadeUp.scss";
-
-//Base
-@import "./base.scss";
 
 //Components
 @import "../components/Button/Button.scss";
@@ -23,7 +27,7 @@
 @import "../components/Forms/PersonalInfo/PersonalInfo.scss";
 @import "../components/Forms/AccountInfo/AccountInfo.scss";
 
-
 //Pages
 @import "../pages/Landing/Landing.scss";
-@import "../pages/SignIn/SignIn.scss";
+@import "../pages/SignUp/SignUp.scss";
+@import "../pages/LogIn/LogIn.scss";

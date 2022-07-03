@@ -1,6 +1,7 @@
-import { showMessage } from "../utils/alerts/alerts";
+import { showMessage,loader } from "../utils/alerts/alerts";
 
 export const signIn = (body) => {
+  loader("Creating user")
   return fetch("http://localhost:3001/signin", {
     method: "POST",
     body: JSON.stringify(body),
@@ -12,9 +13,9 @@ export const signIn = (body) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.status !== 200) {
-        showMessage("Sign in failed", "error");
+        showMessage("Sign up failed", "error");
       } else {
-        showMessage("Signed in successfully", "success");
+        showMessage(data.message, "success");
       }
       return data;
     })

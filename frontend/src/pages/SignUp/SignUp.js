@@ -15,8 +15,8 @@ import { AccountInfo } from "../../components/Forms/AccountInfo/AccountInfo";
 //Service
 import { signIn } from "../../services/signInService";
 
-export const SignIn = () => {
-  const block = "sign-in";
+export const SignUp = () => {
+  const block = "sign-up";
   const formTitles = ["Personal Information", "Account Information"];
   const initialState = {
     fullName: "",

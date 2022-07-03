@@ -7,17 +7,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { App } from "./App";
 import { Landing } from "./pages/Landing/Landing";
-import { SignIn } from "./pages/SignIn/SignIn";
-
+import { SignUp } from "./pages/SignUp/SignUp";
+import { LogIn } from "./pages/LogIn/LogIn";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<LogIn />} />
+
         <Route path='/' element={<App />}>
-          <Route path='/' element={<Landing />}/>
+          <Route path='/' element={<Landing />} />
         </Route>
       </Routes>
     </BrowserRouter>
