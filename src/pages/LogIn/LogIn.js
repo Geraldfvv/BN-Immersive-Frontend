@@ -1,6 +1,7 @@
+import { useState, useContext } from "react";
+import { UserContext } from "../../utils/context/UserContex";
 import { Link, useNavigate } from "react-router-dom";
-import { formValidator } from "../../utils/validation/logInValidation";
-import { useState } from "react";
+import Cookies from "universal-cookie";
 
 //Components
 import logo from "../../assets/logo1.png";
@@ -11,6 +12,7 @@ import { Button } from "../../components/Button/Button";
 //Service
 import { logIn } from "../../services/logInService";
 import { showMessage } from "../../utils/alerts/alerts";
+import { formValidator } from "../../utils/validation/logInValidation";
 
 export const LogIn = () => {
   const block = "login";
@@ -21,7 +23,9 @@ export const LogIn = () => {
 
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
+  const {user, setUser} = useContext(UserContext);
 
+  const cookies = new Cookies();
   const navigate = useNavigate();
 
   const handleFormChange = (event) => {
@@ -33,19 +37,26 @@ export const LogIn = () => {
     const errors = formValidator(formData);
     if (Object.keys(errors).length === 0) {
       setFormErrors(errors);
-      logIn(formData).then((response) => {
-        if (response.status === 200) {
-          setFormData(initialState);
-          showMessage(response.message, "success");
-          console.log(response.token);
-          navigate("/");
-        } else {
-          showMessage(response.errors, "error");
-        }
-      });
+      handleLogIn();
     } else {
       setFormErrors(errors);
     }
+  };
+
+  const handleLogIn = () => {
+    logIn(formData).then((response) => {
+      if (response.status === 200) {
+        showMessage(response.message, "success");
+        setFormData(initialState);
+        cookies.set("user", response.data.token, {
+          maxAge: 3600,
+        });
+        setUser(response.data.name)
+        navigate("/home");
+      } else {
+        showMessage(response.errors, "error");
+      }
+    });
   };
 
   return (

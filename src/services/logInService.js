@@ -1,7 +1,10 @@
-import { showMessage } from "../utils/alerts/alerts";
+import { showMessage, loader } from "../utils/alerts/alerts";
 
 export const logIn = (body) => {
-  return fetch("http://localhost:3001/login", {
+  const url = process.env.REACT_APP_BASE_URL;
+  loader("Logging in");
+
+  return fetch(`${url}/login`, {
     method: "POST",
     body: JSON.stringify(body),
     headers: {
