@@ -10,7 +10,6 @@ import { Landing } from "./pages/Landing/Landing";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { LogIn } from "./pages/LogIn/LogIn";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
-import { UserContext } from "./utils/context/UserContex";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

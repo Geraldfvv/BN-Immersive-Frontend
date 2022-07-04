@@ -1,0 +1,31 @@
+.service {
+  &__root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: 0.25rem $color-primary solid;
+    box-shadow: $shadow;
+    height: 8rem;
+    width: 20%;
+    transition: all 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-10%);
+    }
+  }
+
+  &__icon {
+    color: $color-primary;
+    font-size: 3rem;
+    margin: 0.5rem 0;
+  }
+
+  &__name {
+    @include title($color-primary, 100, 1rem, 1rem, 1rem);
+    text-align: center;
+    margin: 0 1rem;
+  }
+}

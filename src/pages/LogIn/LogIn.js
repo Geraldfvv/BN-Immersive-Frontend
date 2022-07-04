@@ -23,7 +23,7 @@ export const LogIn = () => {
 
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
-  const {user, setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const cookies = new Cookies();
   const navigate = useNavigate();
@@ -51,7 +51,8 @@ export const LogIn = () => {
         cookies.set("user", response.data.token, {
           maxAge: 3600,
         });
-        setUser(response.data.name)
+        sessionStorage.setItem("user", JSON.stringify(response.data.name));
+        setUser(response.data.name);
         navigate("/home");
       } else {
         showMessage(response.errors, "error");

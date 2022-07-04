@@ -1,6 +1,32 @@
 .dashboard {
   &__root {
     display: flex;
+    flex-wrap: wrap;
     padding-top: 5rem;
+  }
+
+  &__title {
+    text-align: center;
+    @include title($color-primary, 700, 2.5rem, 2.5rem, 3rem);
+  }
+
+  &__card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  &__service-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  &__section {
+    @include container(100%, 50%, 50%);
   }
 }
