@@ -1,35 +1,40 @@
 .account {
   &__root {
     display: flex;
-    position: relative;
     flex-wrap: wrap;
-    height: 14rem;
-    @include container(75%, 75%, 65%);
-    border-radius: 0.5rem;
-    background-color: rgb(17, 11, 74);
+    height: 20rem;
+    width: 100%;
+    border-radius: 2rem 0 2rem 0;
+    border: none;
+    background-color: $color-primary;
     background-image: url("../../../assets/logoBN2.png");
     background-position: 90% 14%;
-    cursor: pointer;
-    transition: 0.4s ease-out;
-  
-
-    &:hover {
-      transform: translateX(-5%);
-    }
-
+    box-shadow: $shadow
   }
 
-  &__card{
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
+  &__content {
+    width: 100%;
+
+    @media (min-width: $br-tablet) {
+      width: 80%;
+    }
   }
 
   &__header {
     width: 100%;
-    height: 3rem;
+    height: 50%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__footer {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   &__logo {
@@ -38,18 +43,49 @@
     height: 3rem;
   }
 
-  &__text {
+  &__balance {
     display: flex;
-    font-family: "Kredit", monospace;
-    @include title($color-white, 100, 1rem, 0.9rem, 1rem);
-    margin: 0 1rem;
-    line-height: 2rem;
-    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+  &__value {
+    font-size: 2rem;
+    margin: 0.5rem 1.5rem;
+    line-height: 2.5rem;
+    color: $color-white;
+    font-family: "Kredit", sans-serif;
+    font-weight: 900;
+
+    &--number {
+      font-size: 3.8rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    margin: 0.5rem 1.5rem;
+    color: $color-secondary;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+  }
+
+  &__actions {
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem 2rem;
+
+    @media (min-width: $br-tablet) {
+      width: calc(20% - 2rem);
+      flex-direction: column;    
+    }
+    
+  }
 }
 
 @font-face {
   font-family: "Kredit";
-  src: url("../../../assets/fonts/credit.ttf");
+  src: url("../../../assets/fonts/kredit.ttf");
 }

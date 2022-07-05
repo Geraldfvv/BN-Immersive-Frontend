@@ -13,6 +13,10 @@
 
   @include access-template(url("../../assets/back1.png"));
 
+  &__subtitle--form {
+    margin-top: 2rem;
+  }
+
   &__form {
     @include container(90%, 50%, 70%);
     height: 25rem;

@@ -3,23 +3,29 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 5rem;
+    @include fade-up(1.5s);
   }
 
   &__title {
-    text-align: center;
-    @include title($color-primary, 700, 2.5rem, 2.5rem, 3rem);
+    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    margin: 1rem 4rem;
   }
 
   &__card-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    margin: 0 4rem;
     gap: 1rem;
-    justify-content: center;
+  }
+
+  &__card {
+    @include container(100%, 100%, calc(50% - 0.5rem));
   }
 
   &__service-container {
-    width: 100%;
+    width: calc(100% - 2rem);
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;

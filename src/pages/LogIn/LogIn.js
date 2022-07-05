@@ -23,7 +23,7 @@ export const LogIn = () => {
 
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const cookies = new Cookies();
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ export const LogIn = () => {
           maxAge: 3600,
         });
         sessionStorage.setItem("user", JSON.stringify(response.data.name));
-        setUser(response.data.name);
+        setUser({ ...user, "name": response.data.name });
         navigate("/home");
       } else {
         showMessage(response.errors, "error");
@@ -76,7 +76,9 @@ export const LogIn = () => {
 
       <section className={`${block}__section`}>
         <div className={`${block}__form`}>
-          <h2 className={`${block}__subtitle `}>Log in to continue</h2>
+          <h2 className={`${block}__subtitle ${block}__subtitle--form`}>
+            Log in to continue
+          </h2>
 
           <div className={`${block}__body`}>
             <form>

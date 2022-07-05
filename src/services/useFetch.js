@@ -1,7 +1,9 @@
 import { showMessage, loader } from "../utils/alerts/alerts";
 
-export const useFetch = (method, path, loaderMsg = null, body = null) => {
+export const Fetch = (method, path, loaderMsg = null, body = null) => {
   const url = process.env.REACT_APP_BASE_URL;
+
+  console.log(body);
 
   if (loaderMsg) {
     loader(loaderMsg);
@@ -9,7 +11,7 @@ export const useFetch = (method, path, loaderMsg = null, body = null) => {
 
   return fetch(`${url}/${path}`, {
     method: method,
-    body: body,
+    body: body ? JSON.stringify(body) : null,
     credentials: "include",
     headers: {
       "Content-type": "application/json",

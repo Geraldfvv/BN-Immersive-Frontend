@@ -24,7 +24,7 @@ export const Input = (props) => {
         type={type}
         placeholder={placeholder}
         value={value}
-        accept={accept ? accept : ""}
+        accept={accept ? accept : ""} 
         onChange={(e) => {
           handleFormChange(e);
         }}

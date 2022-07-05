@@ -1,0 +1,36 @@
+.anchor-icon {
+  &__root {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+
+    &:hover .anchor-icon__icon {
+      color: $color-secondary;
+      border: 0.2rem $color-secondary solid;
+      cursor: pointer;
+    }
+
+    &:hover .anchor-icon__text{
+      color: $color-secondary;
+    }
+  }
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem 0 1rem 0;
+    color: $color-white;
+    border: 0.2rem $color-white solid;
+    font-size: 3.5rem;
+  }
+
+  &__text {
+    font-size: 0.8rem;
+    color: $color-white;
+  }
+}

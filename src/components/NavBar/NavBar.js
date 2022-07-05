@@ -17,7 +17,11 @@ export const NavBar = () => {
     <>
       {pathname !== "/login" && pathname !== "/signup" && (
         <div className={`${block}__root`}>
-          <AnchorImg img={logo1} alt='company logo' url='/'></AnchorImg>
+          <AnchorImg
+            img={logo1}
+            alt='company logo'
+            url={pathname.includes("home") ? "/home" : "/"}
+          ></AnchorImg>
 
           {pathname === "/" && (
             <div className={`${block}__buttons`}>
@@ -26,7 +30,7 @@ export const NavBar = () => {
             </div>
           )}
 
-          {pathname !== "/" && <p>{user}</p>}
+          {pathname !== "/" && <p>{user.name}</p>}
         </div>
       )}
     </>

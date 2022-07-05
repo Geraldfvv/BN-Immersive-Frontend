@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../src/styles/styles.scss";
-
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -10,6 +9,8 @@ import { Landing } from "./pages/Landing/Landing";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { LogIn } from "./pages/LogIn/LogIn";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
+import { Home } from "./pages/Home/Home";
+import { TransferMoney } from "./pages/TransferMoney/TransferMoney";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,7 +21,10 @@ root.render(
           <Route path='/' element={<Landing />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LogIn />} />
-          <Route path='/home' element={<Dashboard />} />
+          <Route path='/home' element={<Home />}>
+            <Route path='/home' element={<Dashboard />} />
+            <Route path='/home/transfer' element={<TransferMoney />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
