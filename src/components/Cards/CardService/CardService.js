@@ -1,5 +1,5 @@
 export const CardService = (props) => {
-  const { icon, name } = props;
+  const {  name } = props;
   const block = "service";
   return (
     <button className={`${block}__root`}>

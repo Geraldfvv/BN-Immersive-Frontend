@@ -1,0 +1,51 @@
+.history {
+  &__root {
+    @include fade-up(1s);
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5rem;
+  }
+
+  &__title {
+    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    width: calc(100% - 6rem);
+    margin: 1rem 3rem;
+  }
+
+  &__section {
+    @include container(100%, 50%, 50%);
+  }
+
+  &__form {
+    width: calc(100% - 2rem);
+    margin: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__info{
+    display: flex;
+    width: calc(100% - 5rem);
+    margin: 1rem 2rem;
+    background-color: $color-primary;
+    border-radius: 1rem 0 1rem 0;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    line-height: 0.7rem;
+    color: $color-white;
+  }
+
+  &__icon {
+    height: 4rem;
+    width: 5rem;
+    margin: 1rem;
+    border-radius: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $color-primary;
+    background: $color-white;
+    font-size: 1.2rem;
+  }
+}

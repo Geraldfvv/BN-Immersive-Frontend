@@ -1,0 +1,74 @@
+.transaction {
+  &__root {
+    display: flex;
+    width: calc(100% - 4rem);
+    margin: 1rem 2rem;
+    background-color: $color-primary;
+    border-radius: 1rem 0 1rem 0;
+    @include fade-up(0.5s);
+
+    &--red {
+      border-left: 1rem $color-red solid;
+    }
+
+    &--green {
+      border-left: 0.7rem $color-secondary solid;
+    }
+  }
+
+  &__section {
+    width: 50%;
+    display: flex;
+
+    &--left {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &__date {
+    height: 4rem;
+    width: 5rem;
+    margin: 1rem;
+    border-radius: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $color-primary;
+    background: $color-white;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    & > p {
+      margin: 0;
+    }
+  }
+
+  &__detail {
+    font-size: 1.7rem;
+    margin: 1rem 0 0 0;
+    color: $color-white;
+  }
+
+  &__hour{
+    margin: 0.5rem 0;
+    color: $color-white;
+  }
+
+  &__amount{
+    margin: 1rem;
+    font-size: 1.7rem;
+    &--green{
+      color: $color-secondary;
+    }
+    &--red{
+      color: $color-red;
+    }
+  }
+
+}

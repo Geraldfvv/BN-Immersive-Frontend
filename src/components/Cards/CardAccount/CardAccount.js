@@ -1,4 +1,3 @@
-import logoBN from "../../../assets/logoBN.png";
 
 //Icons
 import { BiTransfer, BiDownload, BiHistory } from "react-icons/bi";
@@ -6,7 +5,7 @@ import { AnchorIcon } from "../../AnchorIcon/AnchorIcon";
 
 export const CardAccount = (props) => {
   const { account } = props;
-  const { currency, balance, iban } = account;
+  const { currency, balance, iban, id } = account;
   const block = "account";
   return (
     <>
@@ -35,7 +34,7 @@ export const CardAccount = (props) => {
             <BiDownload className={`${block}__icon`} />
           </AnchorIcon>
 
-          <AnchorIcon text='History' url='/account'>
+          <AnchorIcon text='History' url={`/home/account/${id}`}>
             <BiHistory className={`${block}__icon`} />
           </AnchorIcon>
         </div>

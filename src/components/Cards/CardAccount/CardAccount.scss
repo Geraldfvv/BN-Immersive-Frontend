@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Kredit";
+  src: url(/* webpackPreload: true */ "../../../assets/fonts/kredit.ttf");
+}
+
 .account {
   &__root {
     display: flex;
@@ -9,7 +14,7 @@
     background-color: $color-primary;
     background-image: url("../../../assets/logoBN2.png");
     background-position: 90% 14%;
-    box-shadow: $shadow
+    box-shadow: $shadow;
   }
 
   &__content {
@@ -55,7 +60,7 @@
     line-height: 2.5rem;
     color: $color-white;
     font-family: "Kredit", sans-serif;
-    font-weight: 900;
+    font-weight: bold;
 
     &--number {
       font-size: 3.8rem;
@@ -79,13 +84,7 @@
 
     @media (min-width: $br-tablet) {
       width: calc(20% - 2rem);
-      flex-direction: column;    
+      flex-direction: column;
     }
-    
   }
-}
-
-@font-face {
-  font-family: "Kredit";
-  src: url("../../../assets/fonts/kredit.ttf");
 }

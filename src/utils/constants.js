@@ -46,6 +46,22 @@ export const incomeOptions = [
   },
 ];
 
+//Months Names
+export const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 // Regex
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;

@@ -1,5 +1,6 @@
 .transfer {
   &__root {
+    @include fade-up(0.8s);
     display: flex;
     flex-wrap: wrap;
     padding-top: 5rem;

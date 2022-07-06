@@ -14,8 +14,11 @@
 @import "./mixins/mixinForm.scss";
 @import "./mixins/mixinAccessTemplate.scss";
 @import "./mixins/animations/mixinFadeUp.scss";
+@import "./mixins/mixinScreenCenter.scss";
 
 //Components
+@import "../components/Loading/Loading.scss";
+@import "../components/Error/Error.scss";
 @import "../components/Button/Button.scss";
 @import "../components/AnchorBtn/AnchorBtn.scss";
 @import "../components/AnchorImg/AnchorImg.scss";
@@ -27,6 +30,7 @@
 @import "../components/Cards/CardLearnMore/CardLearnMore.scss";
 @import "../components/Cards/CardAccount/CardAccount.scss";
 @import "../components/Cards/CardService/CardService.scss";
+@import "../components/Cards/CardTransaction/CardTransaction.scss";
 @import "../components/Forms/PersonalInfo/PersonalInfo.scss";
 @import "../components/Forms/AccountInfo/AccountInfo.scss";
 @import "../components/Forms/TransferInfo/TransferInfo.scss";
@@ -38,3 +42,4 @@
 @import "../pages/LogIn/LogIn.scss";
 @import "../pages/Dashboard/Dashboard.scss";
 @import "../pages/TransferMoney/TransferMoney.scss";
+@import "../pages/AccountHistory/AccountHistory.scss";

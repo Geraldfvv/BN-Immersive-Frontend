@@ -18,7 +18,7 @@
   }
 
   &__name {
-    @include title($color-primary, 100, 1rem, 1rem, 1rem);
+    @include title($color-white, 100, 1rem, 1rem, 1rem);
     text-align: center;
     margin: 0 1rem;
   }

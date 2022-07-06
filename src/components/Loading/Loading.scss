@@ -1,0 +1,45 @@
+.loading {
+  &__root {
+    @include screenCenter;
+  }
+
+  &__spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &__spinner::after {
+    content: "";
+    width: 4rem;
+    height: 4rem;
+    background-color: $color-primary;
+    animation: flip 1s infinite;
+  }
+
+  &__text {
+    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    margin-top: 2rem;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotate(0);
+      background-color: $color-primary;
+    }
+
+    50% {
+      transform: rotateY(180deg);
+      background-color: $color-secondary;
+    }
+
+    100% {
+      transform: rotateY(180deg) rotateX(180deg);
+      background-color: $color-primary;
+    }
+  }
+
+}

@@ -16,7 +16,8 @@
     flex-wrap: wrap;
 
     &--50 {
-      @include container(100%, 100%, 50%);
+      @include container(100%, 100%, calc(50% - 2rem));
+      margin: 0 1rem;
     }
   }
 
@@ -27,12 +28,12 @@
     @include title($color-primary, 400, 1rem, 1rem, 1rem);
 
     &--error {
-      color: red;
+      color: $color-red;
     }
   }
 
   &__error {
-    color: red;
+    color: $color-red;
     font-size: smaller;
   }
 
@@ -48,6 +49,9 @@
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+    &::-webkit-calendar-picker-indicator{
+      margin-right: 1rem;
     }
 
     &--error {

@@ -1,0 +1,16 @@
+.error {
+  &__root {
+    @include screenCenter;
+  }
+
+  &__text {
+    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__icon {
+    height: 10rem;
+    width: 10rem;
+  }
+}

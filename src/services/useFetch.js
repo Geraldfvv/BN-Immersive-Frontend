@@ -1,9 +1,7 @@
-import { showMessage, loader } from "../utils/alerts/alerts";
+import { loader } from "../utils/alerts/alerts";
 
 export const Fetch = (method, path, loaderMsg = null, body = null) => {
   const url = process.env.REACT_APP_BASE_URL;
-
-  console.log(body);
 
   if (loaderMsg) {
     loader(loaderMsg);
@@ -19,10 +17,5 @@ export const Fetch = (method, path, loaderMsg = null, body = null) => {
     mode: "cors",
   })
     .then((response) => response.json())
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      showMessage(err, "error");
-    });
+    .catch((err) => {});
 };
