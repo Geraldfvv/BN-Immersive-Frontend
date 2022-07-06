@@ -3,18 +3,18 @@
     @include fade-up(0.8s);
     display: flex;
     flex-wrap: wrap;
-    padding-top: 5rem;
+    padding-top: 6rem;
   }
 
   &__section {
     @include container(100%, calc(50% - 4rem), calc(50% - 4rem));
-    margin: 0 2rem;
+    margin: 2rem 2rem;
   }
 
   &__title {
     @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
-    width: 100%;
-    margin: 1rem 3rem;
+    width: calc(100% - 6rem);
+    margin: 0 3rem;
   }
 
   &__subtitle {

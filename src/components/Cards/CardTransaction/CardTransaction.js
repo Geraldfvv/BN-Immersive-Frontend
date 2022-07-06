@@ -13,6 +13,7 @@ export const CardTransaction = (props) => {
         type === "-" ? "--red" : "--green"
       }`}
       ref={card}
+      tabIndex={0}
     >
       <div className={`${block}__section ${block}__section--left`}>
         <div className={`${block}__date`}>

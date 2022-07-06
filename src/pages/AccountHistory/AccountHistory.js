@@ -26,8 +26,7 @@ export const AccountHistory = () => {
       .split("T")[0],
   };
 
-  const [debits, setDebits] = useState("");
-  const [credits, setCredits] = useState("");
+  const [transfers, setTransfers] = useState("");
   const [acc, setAcc] = useState("");
   const [loadead, setLoaded] = useState(0); // 0 : Not Loaded, 1 : Loadeed , 2 : Error
   const [query, setQuery] = useState(initialState);
@@ -43,8 +42,9 @@ export const AccountHistory = () => {
   useEffect(() => {
     promise.then((response) => {
       if (response.status === 200) {
-        setDebits(response.data.transfers.debits);
-        setCredits(response.data.transfers.credits);
+        setTransfers(
+          response.data.transfers.sort((a, b) => (a.date < b.date ? 1 : -1))
+        );
         setAcc(response.data.account);
         setLoaded(1);
       } else {
@@ -64,7 +64,7 @@ export const AccountHistory = () => {
       {loadead === 0 && <Loading></Loading>}
       {loadead === 1 && (
         <div className={`${block}__root`}>
-          <div className={`${block}__section`}>
+          <div className={`${block}__section ${block}__section--sticky`}>
             <h1 className={`${block}__title`}>Account</h1>
             <div className={`${block}__info`}>
               <div className={`${block}__icon`}>
@@ -77,8 +77,7 @@ export const AccountHistory = () => {
                 </p>
               </div>
             </div>
-          </div>
-          <div className={`${block}__section`}>
+
             <h1 className={`${block}__title`}>Date Filter</h1>
 
             <form className={`${block}__form`}>
@@ -104,30 +103,13 @@ export const AccountHistory = () => {
             </form>
           </div>
 
-          <div className={`${block}__section`}>
-            <h1 className={`${block}__title`}>Credits</h1>
-
-            {credits.map((transaction) => {
+          <div className={`${block}__section ${block}__section--scroll`}>
+            <h1 className={`${block}__title`}>History</h1>
+            {transfers.map((transaction) => {
               return (
                 <CardTransaction
                   date={transaction.date}
-                  type={transaction.origin === account ? "-" : "+"}
-                  detail={transaction.detail}
-                  amount={transaction.amount}
-                  currency={transaction.currency}
-                />
-              );
-            })}
-          </div>
-
-          <div className={`${block}__section`}>
-            <h1 className={`${block}__title`}>Debits</h1>
-
-            {debits.map((transaction) => {
-              return (
-                <CardTransaction
-                  date={transaction.date}
-                  type={transaction.idDestiny === account ? "+" : "-"}
+                  type={transaction.idOrigin === account ? "-" : "+"}
                   detail={transaction.detail}
                   amount={transaction.amount}
                   currency={transaction.currency}

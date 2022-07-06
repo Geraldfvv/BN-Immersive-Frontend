@@ -3,7 +3,7 @@
     @include fade-up(0.8s);
     display: flex;
     flex-wrap: wrap;
-    padding-top: 5rem;
+    padding-top: 6rem;
   }
 
   &__title {
@@ -12,11 +12,11 @@
   }
 
   &__card-container {
-    width: 100%;
+    width: calc(100% - 4rem);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 4rem;
+    margin: 0 2rem;
     gap: 1rem;
   }
 

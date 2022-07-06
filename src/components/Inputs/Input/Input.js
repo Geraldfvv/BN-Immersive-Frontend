@@ -21,6 +21,7 @@ export const Input = (props) => {
       >
         {label} <span className={`${block}__error`}>{error}</span>
       </label>
+      
       <input
         id={id}
         className={`${block}__input ${error ? `${block}__input--error` : ""}`}

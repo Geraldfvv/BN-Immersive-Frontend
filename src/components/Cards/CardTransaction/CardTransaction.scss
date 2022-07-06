@@ -17,15 +17,16 @@
   }
 
   &__section {
-    width: 50%;
     display: flex;
 
     &--left {
+      width: 70%;
       align-items: flex-start;
       justify-content: flex-start;
     }
 
     &--right {
+      width: 30%;
       justify-content: flex-end;
     }
   }
@@ -55,20 +56,14 @@
     color: $color-white;
   }
 
-  &__hour{
+  &__hour {
     margin: 0.5rem 0;
     color: $color-white;
   }
 
-  &__amount{
-    margin: 1rem;
-    font-size: 1.7rem;
-    &--green{
-      color: $color-secondary;
-    }
-    &--red{
-      color: $color-red;
-    }
+  &__amount {
+    margin: 1.5rem 1rem;
+    font-size: 1.3rem;
+    color: $color-white;
   }
-
 }

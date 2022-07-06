@@ -1,7 +1,7 @@
 .nav-bar {
   &__root {
     background-color: $color-primary;
-    height: 5rem;
+    height: 5.5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -9,10 +9,48 @@
     z-index: 2;
   }
 
-  &__buttons{
+  &__buttons {
     display: flex;
     margin: 0 1rem;
     align-items: center;
     gap: 1rem;
+  }
+
+  &__routes {
+    margin: 1rem 2rem;
+    display: none;
+
+    @media (min-width: $br-desktop) {
+      display: flex;
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    font-size: 3.5rem;
+  }
+
+  &__text {
+    padding: 0;
+    margin: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  &__route {
+    width: 6rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary;
+    border: none;
+
+    &:hover {
+      color: $color-secondary;
+    }
   }
 }

@@ -31,9 +31,8 @@ export const TransferMoney = () => {
 
   return (
     <div className={`${block}__root`}>
-      <h1 className={`${block}__title`}>Transfer Money</h1>
-
       <article className={`${block}__section`}>
+        <h1 className={`${block}__title`}>Transfer Money</h1>
         <h2 className={`${block}__subtitle`}>Transfers to other banks</h2>
         <p>Be sure to read the following service overview before proceeding:</p>
         <ol className={`${block}__instruction`}>
