@@ -1,6 +1,6 @@
 // Functions
 import { useState, useEffect, useRef } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formValidator } from "../../utils/validation/signInValidation";
 // Hooks
 import { useGoToSection } from "../../utils/hooks/useGoToSection";
@@ -37,8 +37,6 @@ export const SignUp = () => {
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [visible, setVisible] = useState();
-
-
 
   useEffect(() => {
     if (onScreen) {
@@ -91,6 +89,7 @@ export const SignUp = () => {
       if (formPage !== formTitles.length - 1) {
         setFormPage((formPage) => formPage + 1);
       } else {
+
         handleSubmit();
       }
     } else {
