@@ -39,10 +39,10 @@ export const NavBar = () => {
 
           {(pathname === "/" || !user) && (
             <div className={`${block}__buttons`}>
-              <AnchorNav route='/signup' text='Sign Up'>
+              <AnchorNav route='/signup' text='Sign Up' location={pathname}>
                 <BiUserPlus className='anchor-nav__icon' />
               </AnchorNav>
-              <AnchorNav route='/login' text='Log In'>
+              <AnchorNav route='/login' text='Log In' location={pathname}>
                 <RiLoginCircleLine className='anchor-nav__icon' />
               </AnchorNav>
             </div>
@@ -50,29 +50,45 @@ export const NavBar = () => {
 
           {pathname.includes("home") && user && (
             <div className={`${block}__routes`}>
-              <AnchorNav route='/home' text='Home'>
+              <AnchorNav route='/home' text='Home' location={pathname}>
                 <BiHomeAlt className='anchor-nav__icon' />
               </AnchorNav>
 
-              <AnchorNav route='/home/services' text='Services'>
+              <AnchorNav
+                route='/home/services'
+                text='Services'
+                location={pathname}
+              >
                 <BiBulb className='anchor-nav__icon' />
               </AnchorNav>
 
-              <AnchorNav route='/home/transfer' text='Transfer'>
+              <AnchorNav
+                route='/home/transfer'
+                text='Transfer'
+                location={pathname}
+              >
                 <BiTransfer className='anchor-nav__icon' />
               </AnchorNav>
 
-              <AnchorNav route='/home/transfer' text='Add Money'>
+              <AnchorNav
+                route='/home/fund'
+                text='Add Money'
+                location={pathname}
+              >
                 <BiDownload className='anchor-nav__icon' />
               </AnchorNav>
 
-              <AnchorNav route='/home/profile' text='Profile'>
+              <AnchorNav
+                route='/home/profile'
+                text='Profile'
+                location={pathname}
+              >
                 <BiUser className='anchor-nav__icon' />
               </AnchorNav>
 
-              <button className="anchor-nav__route log-out">
-                <RiLogoutCircleRLine className="anchor-nav__icon" />
-                <p className="anchor-nav__text">Log Out</p>
+              <button className='anchor-nav__route log-out'>
+                <RiLogoutCircleRLine className='anchor-nav__icon' />
+                <p className='anchor-nav__text'>Log Out</p>
               </button>
             </div>
           )}

@@ -26,5 +26,9 @@
     &:hover {
       color: $color-secondary;
     }
+
+    &--active {
+      color: $color-secondary;
+    }
   }
 }

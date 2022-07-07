@@ -1,7 +1,7 @@
 
 //Icons
 import { BiTransfer, BiDownload, BiHistory } from "react-icons/bi";
-import { AnchorIcon } from "../../AnchorIcon/AnchorIcon";
+import { AnchorIcon } from "../../Anchors/AnchorIcon/AnchorIcon";
 
 export const CardAccount = (props) => {
   const { account } = props;
