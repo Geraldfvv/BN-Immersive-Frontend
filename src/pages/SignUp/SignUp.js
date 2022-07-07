@@ -7,7 +7,7 @@ import { useGoToSection } from "../../utils/hooks/useGoToSection";
 import { useOnScreen } from "../../utils/hooks/useOnScreen";
 // Components
 import logo from "../../assets/logo1.png";
-import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
+import { AnchorImg } from "../../components/Anchors/AnchorImg/AnchorImg";
 import { Button } from "../../components/Button/Button";
 // Forms
 import { PersonalInfo } from "../../components/Forms/PersonalInfo/PersonalInfo";

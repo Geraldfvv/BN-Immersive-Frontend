@@ -3,7 +3,7 @@
     display: flex;
     width: calc(100% - 4rem);
     margin: 1rem 2rem;
-    background-color: $color-primary;
+    background-image: $color-gardient-2;
     border-radius: 1rem 0 1rem 0;
     @include fade-up(0.5s);
 

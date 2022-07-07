@@ -12,6 +12,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Home } from "./pages/Home/Home";
 import { TransferMoney } from "./pages/TransferMoney/TransferMoney";
 import { AccountHistory } from "./pages/AccountHistory/AccountHistory";
+import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,7 +28,8 @@ root.render(
             <Route path='/home/transfer' element={<TransferMoney />} />
             <Route path='/home/account/:id' element={<AccountHistory />} />
           </Route>
-        </Route>
+          <Route path='*' element={<ErrorPage line1="Oooops!" line2="Page not found"/>}></Route>
+        </Route> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

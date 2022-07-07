@@ -1,6 +1,6 @@
 import { React } from "react";
 
-import { AnchorBtn } from "../AnchorBtn/AnchorBtn";
+import { AnchorBtn } from "../Anchors/AnchorBtn/AnchorBtn";
 
 export const Hero = () => {
   const block = "hero";

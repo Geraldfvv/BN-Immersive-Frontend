@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 //Components
 import logo from "../../assets/logo1.png";
 import { Input } from "../../components/Inputs/Input/Input";
-import { AnchorImg } from "../../components/AnchorImg/AnchorImg";
+import { AnchorImg } from "../../components/Anchors/AnchorImg/AnchorImg";
 import { Button } from "../../components/Button/Button";
 
 //Service
