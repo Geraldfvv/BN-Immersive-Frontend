@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../utils/context/UserContex";
+import Cookies from "universal-cookie";
 
 import { useLocation, Link } from "react-router-dom";
 import { AnchorBtn } from "../../components/AnchorBtn/AnchorBtn";
@@ -8,10 +9,11 @@ import {
   BiTransfer,
   BiDownload,
   BiUser,
+  BiUserPlus,
   BiHomeAlt,
   BiBulb,
 } from "react-icons/bi";
-import { RiLogoutCircleRLine } from "react-icons/ri";
+import { RiLogoutCircleRLine , RiLoginCircleLine } from "react-icons/ri";
 
 import logo1 from "../../assets/logo1.png";
 
@@ -19,7 +21,8 @@ export const NavBar = () => {
   const block = "nav-bar";
 
   const { pathname } = useLocation();
-  const { user } = useContext(UserContext);
+  const cookies = new Cookies();
+  const user = cookies.get("user");
 
   return (
     <>
@@ -32,17 +35,24 @@ export const NavBar = () => {
           <AnchorImg
             img={logo1}
             alt='company logo'
-            url={pathname.includes("home") ? "/home" : "/"}
+            url={pathname.includes("home") && user ? "/home" : "/"}
           ></AnchorImg>
 
-          {pathname === "/" && (
+          {(pathname === "/" || !user) && (
             <div className={`${block}__buttons`}>
-              <AnchorBtn theme='primary' text='Sign Up' url='/signup' />
-              <AnchorBtn theme='primary' text='Log In' url='/login' />
+              <Link to={"/signup"} className={`${block}__route`}>
+                <BiUserPlus className={`${block}__icon`} />
+                <p className={`${block}__text`}>Sign Up</p>
+              </Link>
+
+              <Link to={"/login"} className={`${block}__route`}>
+                <RiLoginCircleLine className={`${block}__icon`} />
+                <p className={`${block}__text`}>Log In</p>
+              </Link>
             </div>
           )}
 
-          {pathname.includes("home") && (
+          {pathname.includes("home") && user && (
             <div className={`${block}__routes`}>
               <Link to={"/home"} className={`${block}__route`}>
                 <BiHomeAlt className={`${block}__icon`} />

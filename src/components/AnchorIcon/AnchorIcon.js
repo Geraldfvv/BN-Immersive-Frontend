@@ -5,12 +5,12 @@ export const AnchorIcon = (props) => {
   const block = "anchor-icon";
   return (
     <>
-      <div className={`${block}__root`}>
-        <Link to={url} className={`${block}__icon `}>
+      <Link to={url} className={`${block}__root`}>
+        <div className={`${block}__icon `}>
           {props.children}
-        </Link>
+        </div>
         <p className={`${block}__text`}>{text}</p>
-      </div>
+      </Link>
     </>
   );
 };

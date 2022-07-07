@@ -15,13 +15,13 @@ export const signIn = (body) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.status !== 200) {
-        showMessage("Sign up failed", "error");
+        showMessage("Sign up failed", "error" , 3000);
       } else {
-        showMessage(data.message, "success");
+        showMessage(data.message, "success" , 3000);
       }
       return data;
     })
     .catch((err) => {
-      showMessage("An error has occurred, please try again", "error");
+      showMessage("An error has occurred, please try again", "error" , 3000);
     });
 };

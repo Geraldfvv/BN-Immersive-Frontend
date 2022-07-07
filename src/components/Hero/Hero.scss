@@ -39,8 +39,8 @@
   }
 
   &__title {
+    @include title($color-white, 700, 2.5rem, 3rem, 4rem);
     text-align: center;
     padding: 0 3rem;
-    @include title($color-white, 700, 2.5rem, 3rem, 4rem);
   }
 }

@@ -12,9 +12,9 @@
     margin: 0.5rem 0;
     border: none;
     border-radius: 2rem 0 2rem 0;
-    background-color: $color-primary;
-    background-image: url("../../../assets/logoBN2.png");
+    background-image: url("../../../assets/logoBN2.png"), linear-gradient( to bottom, $color-primary ,#0c1a4b);
     background-position: 90% 14%;
+    background-repeat: no-repeat;
     box-shadow: $shadow;
   }
 

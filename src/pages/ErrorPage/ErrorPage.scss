@@ -1,0 +1,41 @@
+.error-page {
+  &__root {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    background-position: 100% 0;
+    background-image: linear-gradient(
+        $color-primary 15%,
+        rgba(255, 255, 255, 0.4)
+      ),
+      url("https://st.depositphotos.com/1003697/2146/i/600/depositphotos_21466649-stock-photo-business-man-with-problems-and.jpg");
+    background-size: cover;
+    box-shadow: $shadow;
+  }
+
+  &__line {
+    padding: 0 3rem;
+    &--1 {
+      @include title($color-white, 700, 2.5rem, 3rem, 4rem);
+      margin: 7rem 0 0 0;
+    }
+
+    &--2 {
+      @include title($color-white, 700, 2rem, 2rem, 2rem);
+      margin: 0;
+    }
+  }
+
+  &__content {
+    @include container(100%, 50%, 50%);
+    @include fade-up(1s);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+    text-align: center;
+  }
+}

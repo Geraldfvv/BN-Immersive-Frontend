@@ -1,11 +1,11 @@
 import Swal from "sweetalert2";
 
-export const showMessage = (title, type) => {
+export const showMessage = (title, type , timer = null) => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 3000,
+    timer: timer,
     icon: type,
     title: title,
     customClass: {

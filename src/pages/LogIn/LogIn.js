@@ -46,17 +46,16 @@ export const LogIn = () => {
   const handleLogIn = () => {
     logIn(formData).then((response) => {
       if (response.status === 200) {
-        showMessage(response.message, "success");
+        showMessage(response.message, "success" , 3000);
         setFormData(initialState);
         cookies.set("user", response.data.token, {
           maxAge: 3600,
         });
-        console.log(cookies.get("user"))
         sessionStorage.setItem("user", JSON.stringify(response.data.name));
         setUser({ ...user, "name": response.data.name });
         navigate("/home");
       } else {
-        showMessage(response.errors, "error");
+        showMessage(response.errors, "error" , 3000);
       }
     });
   };

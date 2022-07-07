@@ -17,6 +17,6 @@ export const logIn = (body) => {
       return data;
     })
     .catch((err) => {
-      showMessage("An error has occurred, please try again", "error");
+      showMessage("An error has occurred, please try again", "error" , 3000);
     });
 };
