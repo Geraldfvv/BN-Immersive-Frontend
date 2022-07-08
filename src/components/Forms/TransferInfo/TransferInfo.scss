@@ -1,3 +1,7 @@
 .transfer-info {
   @include forms;
+  
+  &__root {
+    width: 100%;
+  }
 }

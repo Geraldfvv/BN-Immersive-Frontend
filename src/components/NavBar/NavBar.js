@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AnchorNav } from "../Anchors/AnchorNav/AnchorNav";
 import { AnchorImg } from "../Anchors/AnchorImg/AnchorImg";
+import { confirmation } from "../../utils/alerts/alerts";
 
 import {
   BiTransfer,
@@ -19,18 +20,29 @@ import logo1 from "../../assets/logo1.png";
 export const NavBar = () => {
   const block = "nav-bar";
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const cookies = new Cookies();
   const userCookie = cookies.get("user");
   const [user, setUser] = useState();
 
   useEffect(() => {
-    if (sessionStorage.getItem("userName") !== undefined) {
+    if (sessionStorage.getItem("userName") !== null) {
       const userName = JSON.parse(
         sessionStorage.getItem("userName")
       ).name.split(" ")[0];
       setUser(userName);
     }
   }, []);
+
+  const handleLogOut = () => {
+    confirmation("Are you sure you want to log out?").then((result) => {
+      if (result.isConfirmed) {
+        cookies.remove("user");
+        sessionStorage.clear();
+        navigate("/");
+      }
+    });
+  };
 
   return (
     <>
@@ -91,7 +103,10 @@ export const NavBar = () => {
                 <BiUser className='anchor-nav__icon' />
               </AnchorNav>
 
-              <button className='anchor-nav__route log-out'>
+              <button
+                className='anchor-nav__route log-out'
+                onClick={() => handleLogOut()}
+              >
                 <RiLogoutCircleRLine className='anchor-nav__icon' />
                 <p className='anchor-nav__text'>Log Out</p>
               </button>

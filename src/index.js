@@ -14,6 +14,7 @@ import { TransferMoney } from "./pages/TransferMoney/TransferMoney";
 import { AccountHistory } from "./pages/AccountHistory/AccountHistory";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { Services } from "./pages/Services/Services";
+import { Profile } from "./pages/Profile/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,8 +28,10 @@ root.render(
           <Route path='/home' element={<Home />}>
             <Route path='/home' element={<Dashboard />} />
             <Route path='/home/transfer' element={<TransferMoney />} />
+            <Route path='/home/fund' element={<TransferMoney />} />
             <Route path='/home/services' element={<Services />} />
             <Route path='/home/account/:id' element={<AccountHistory />} />
+            <Route path='/home/profile/' element={<Profile />} />
           </Route>
           <Route
             path='*'

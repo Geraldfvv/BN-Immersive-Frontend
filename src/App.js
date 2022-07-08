@@ -9,8 +9,8 @@ export const App = () => {
 
   useEffect(() => {
     if (
-      sessionStorage.getItem("accounts") !== undefined &&
-      sessionStorage.getItem("userName") !== undefined
+      sessionStorage.getItem("accounts") !== null &&
+      sessionStorage.getItem("userName") !== null
     ) {
       const accounts = JSON.parse(sessionStorage.getItem("accounts"));
       const userName = JSON.parse(

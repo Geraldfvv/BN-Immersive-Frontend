@@ -7,7 +7,11 @@ export const Home = () => {
   const userCookies = cookies.get("user");
 
   if (userCookies ) {
-    return <Outlet></Outlet>;
+    return (
+      <div className="home__root">
+        <Outlet></Outlet>;
+      </div>
+    )
   } else {
     return (
       <ErrorPage

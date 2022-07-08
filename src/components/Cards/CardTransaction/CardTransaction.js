@@ -34,7 +34,7 @@ export const CardTransaction = (props) => {
             type === "-" ? "--red" : "--green"
           }`}
         >
-          {type} {currency} {amount}
+          {type} {currency} {Math.round(amount * 100) / 100}
         </p>
       </div>
     </div>

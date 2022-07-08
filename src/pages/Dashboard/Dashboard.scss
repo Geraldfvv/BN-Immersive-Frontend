@@ -2,12 +2,17 @@
   &__root {
     @include fade-up(0.8s);
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding-top: 6rem;
+    height: auto;
+    @media (min-width: $br-desktop) {
+      height: 100vh;
+    }
   }
 
   &__title {
-    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    @include title($color-white, 700, 2rem, 2rem, 2.5rem);
+    height: 4rem;
     margin: 1rem 4rem;
   }
 
@@ -15,7 +20,6 @@
     width: calc(100% - 4rem);
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     margin: 0 2rem;
     gap: 1rem;
   }

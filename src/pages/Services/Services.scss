@@ -3,9 +3,12 @@
     @include fade-up(0.8s);
     display: flex;
     flex-wrap: wrap;
-    padding: 6.5rem 1rem 0 1rem;
+    padding: 5.5rem 1rem 0 1rem;
     gap: 1rem;
-    height: 80vh;
+    height: auto;
+    @media (min-width: $br-desktop) {
+      height: 85vh;
+    }
   }
 
   &__select {
@@ -30,6 +33,7 @@
   &__category {
     @include title($color-primary, 700, 0.8rem, 0.8rem, 1.2rem);
     @include container(calc(33.33% - 1rem), calc(33.33% - 1rem), 100%);
+    @include fade-up(0.5s);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,12 +73,10 @@
     width: 6rem;
   }
 
-  &__form {
+  &__payment {
     @include container(100%, 100%, calc(50% - 2rem));
     background-color: $color-ternary;
     border-radius: $border-radius;
-    width: 100%;
-    gap: 1rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -87,8 +89,18 @@
     margin: 0 3rem;
   }
 
-  &__check {
+  &__form {
     width: 100%;
+  }
+
+  &__group {
+    @include fade-up(0.8s);
+    width: 100%;
+    margin: 0.5rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__title {

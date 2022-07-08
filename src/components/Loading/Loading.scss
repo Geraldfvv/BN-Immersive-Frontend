@@ -21,7 +21,7 @@
   }
 
   &__text {
-    @include title($color-primary, 700, 2rem, 2rem, 2.5rem);
+    @include title($color-white, 700, 2rem, 2rem, 2.5rem);
     margin-top: 2rem;
   }
 
@@ -33,7 +33,7 @@
 
     50% {
       transform: rotateY(180deg);
-      background-color: $color-secondary;
+      background-color: $color-secondary; 
     }
 
     100% {

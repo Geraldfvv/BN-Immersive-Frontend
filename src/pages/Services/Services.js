@@ -27,6 +27,7 @@ export const Services = () => {
 
   const getServices = (category) => {
     setBill("");
+    setSelected("");
     Fetch("GET", `services?category=${category}`).then((response) => {
       if (response.status === 200) {
         setServices(response.data);
@@ -73,8 +74,6 @@ export const Services = () => {
   };
 
   const handlePay = () => {
-    console.log(bill);
-
     if (!formData.account) {
       setFormErrors({ account: "Account is required" });
     } else {
@@ -90,11 +89,7 @@ export const Services = () => {
             setSelected("");
             setServices("");
           } else {
-            showMessage(
-              "An error have ocurred please try again",
-              "error",
-              3000
-            );
+            showMessage(JSON.parse(response.errors).amount, "error", 3000);
           }
         })
         .catch((err) => {
@@ -169,11 +164,11 @@ export const Services = () => {
         )}
       </div>
 
-      <div className={`${block}__form`}>
+      <div className={`${block}__payment`}>
         <h1 className={`${block}__title`}>Confirm your payment</h1>
         {selected && (
-          <>
-            <form className={`${block}__check`}>
+          <div className={`${block}__group`}>
+            <form className={`${block}__form`}>
               <Input
                 type='text'
                 label={`${selected.category} ${selected.name} `}
@@ -189,14 +184,14 @@ export const Services = () => {
               text={"Check Bill"}
               handleClick={handleCheckBill}
             ></Button>
-          </>
+          </div>
         )}
         {bill && (
-          <>
+          <div className={`${block}__group`}>
             <p
               className={`${block}__bill`}
             >{`${bill.name} :  ₡${bill.amount}`}</p>
-            <form className={`${block}__check`}>
+            <form className={`${block}__form`}>
               <Select
                 label='Account to be debited'
                 handleFormChange={handleFormChange}
@@ -211,7 +206,7 @@ export const Services = () => {
               text={"Pay"}
               handleClick={handlePay}
             ></Button>
-          </>
+          </div>
         )}
         {!selected && (
           <p className={`${block}__empty`}>Select a service first</p>

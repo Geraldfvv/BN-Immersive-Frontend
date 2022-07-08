@@ -6,9 +6,9 @@ export const TransferInfo = ({
   handleFormChange,
   accounts,
   errors,
+  route,
 }) => {
-  const block = "personal-info";
-
+  const block = "transfer-info";
   const formatedOptions = [];
   accounts.map((account) => {
     formatedOptions.push({ name: account.iban, value: account.iban });
@@ -17,26 +17,53 @@ export const TransferInfo = ({
   return (
     <div className={`${block}__root`}>
       <form className={`${block}__form`}>
-        <Select
-          label='Account to be debited'
-          handleFormChange={handleFormChange}
-          value={formData.origin}
-          id='origin'
-          error={errors.origin ? errors.origin : ""}
-          options={formatedOptions}
-        />
+        {route === "/home/transfer" ? (
+          <>
+            <Select
+              label='Account to be debited'
+              handleFormChange={handleFormChange}
+              value={formData.origin}
+              id='origin'
+              error={errors.origin ? errors.origin : ""}
+              options={formatedOptions}
+            />
 
-        <Input
-          type='text'
-          label='Account to be credited'
-          value={formData.destiny}
-          handleFormChange={handleFormChange}
-          error={errors.destiny ? errors.destiny : ""}
-          placeholder={`${
-            formData.origin.includes("US") ? "US" : "CR"
-          }1234567891234567892 `}
-          id='destiny'
-        />
+            <Input
+              type='text'
+              label='Account to be credited'
+              value={formData.destiny}
+              handleFormChange={handleFormChange}
+              error={errors.destiny ? errors.destiny : ""}
+              placeholder={`${
+                formData.origin.includes("US") ? "US" : "CR"
+              }1234567891234567892 `}
+              id='destiny'
+            />
+          </>
+        ) : (
+          <>
+            <Input
+              type='text'
+              label='Account to be debited'
+              value={formData.origin}
+              handleFormChange={handleFormChange}
+              error={errors.origin ? errors.origin : ""}
+              placeholder={`${
+                formData.origin.includes("US") ? "US" : "CR"
+              }1234567891234567892 `}
+              id='origin'
+            />
+
+            <Select
+              label='Account to be credited'
+              handleFormChange={handleFormChange}
+              value={formData.destiny}
+              id='destiny'
+              error={errors.destiny ? errors.destiny : ""}
+              options={formatedOptions}
+            />
+          </>
+        )}
 
         <Input
           type='number'
