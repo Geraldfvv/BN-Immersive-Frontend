@@ -3,12 +3,12 @@
     @include fade-up(1s);
     display: flex;
     flex-wrap: wrap;
-    padding-top: 6rem;
-    height: 100%;
-
+    padding: 5.5rem 1rem 0 1rem;
+    gap: 1rem;
+    height: auto;
     @media (min-width: $br-desktop) {
       flex-wrap: nowrap;
-      height: 80vh;
+      height: 85vh;
     }
   }
 
@@ -19,7 +19,11 @@
   }
 
   &__section {
-    @include container(100%, 100%, 50%);
+    @include container(100%, 100%, calc(50% - 1rem));
+
+    padding: 1rem;
+    background-color: $color-ternary;
+    border-radius: $border-radius;
 
     &--sticky {
       overflow: hidden;

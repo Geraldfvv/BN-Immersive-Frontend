@@ -20,11 +20,14 @@ export const CardTransaction = (props) => {
           <p>{transDate.getDate()}</p>
           <p>{monthNames[transDate.getMonth()]}</p>
         </div>
-        <div>
+        <div className={`${block}__info`}>
           <p className={`${block}__detail`}>{detail}</p>
           <p className={`${block}__hour`}>
             {type === "-" ? "Sent at" : "Received at"}{" "}
             {`${transDate.getHours()}:${transDate.getMinutes()}`}
+          </p>
+          <p className={`${block}__amount--hidden`}>
+            {type} {currency} {Math.round(amount * 100) / 100}
           </p>
         </div>
       </div>

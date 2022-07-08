@@ -1,11 +1,11 @@
 .transaction {
   &__root {
+    @include fade-up(0.5s);
     display: flex;
     width: calc(100% - 4rem);
     margin: 1rem 2rem;
     background-image: $color-gardient-2;
     border-radius: 1rem 0 1rem 0;
-    @include fade-up(0.5s);
 
     &--red {
       border-left: 1rem $color-red solid;
@@ -20,14 +20,33 @@
     display: flex;
 
     &--left {
-      width: 70%;
+      width: 100%;
       align-items: flex-start;
       justify-content: flex-start;
+
+      @media (min-width: $br-desktop) {
+        width: 70%;
+      }
     }
 
     &--right {
       width: 30%;
       justify-content: flex-end;
+      display: none;
+      @media (min-width: $br-desktop) {
+        display: block;
+      }
+    }
+  }
+
+  &__info {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (min-width: $br-desktop) {
+      width: 70%;
     }
   }
 
@@ -51,7 +70,7 @@
   }
 
   &__detail {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     margin: 1rem 0 0 0;
     color: $color-white;
   }
@@ -63,7 +82,21 @@
 
   &__amount {
     margin: 1.5rem 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: $color-white;
+    display: none;
+    @media (min-width: $br-desktop) {
+      display: block;
+    }
+
+    &--hidden {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: $color-white;
+
+      @media (min-width: $br-desktop) {
+        display: none;
+      }
+    }
   }
 }
