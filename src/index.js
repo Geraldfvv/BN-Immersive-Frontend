@@ -13,6 +13,7 @@ import { Home } from "./pages/Home/Home";
 import { TransferMoney } from "./pages/TransferMoney/TransferMoney";
 import { AccountHistory } from "./pages/AccountHistory/AccountHistory";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
+import { Services } from "./pages/Services/Services";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,10 +27,14 @@ root.render(
           <Route path='/home' element={<Home />}>
             <Route path='/home' element={<Dashboard />} />
             <Route path='/home/transfer' element={<TransferMoney />} />
+            <Route path='/home/services' element={<Services />} />
             <Route path='/home/account/:id' element={<AccountHistory />} />
           </Route>
-          <Route path='*' element={<ErrorPage line1="Oooops!" line2="Page not found"/>}></Route>
-        </Route> 
+          <Route
+            path='*'
+            element={<ErrorPage line1='Oooops!' line2='Page not found' />}
+          ></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

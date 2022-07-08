@@ -27,6 +27,10 @@
       color: $color-secondary;
     }
 
+    &:focus {
+      color: $color-secondary;
+    }
+
     &--active {
       color: $color-secondary;
     }

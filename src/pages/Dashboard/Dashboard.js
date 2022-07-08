@@ -17,7 +17,8 @@ export const Dashboard = () => {
     promise
       .then((response) => {
         if (response.status === 200) {
-          setUser({ ...user, accounts: response.data });
+          sessionStorage.setItem("accounts", JSON.stringify(response.data));
+          setUser({ ...user, "accounts": response.data });
           setLoaded(1);
         } else {
           setLoaded(2);

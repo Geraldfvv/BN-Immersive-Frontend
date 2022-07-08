@@ -51,7 +51,7 @@ export const LogIn = () => {
         cookies.set("user", response.data.token, {
           maxAge: 3600,
         });
-        sessionStorage.setItem("user", JSON.stringify(response.data.name));
+        sessionStorage.setItem("userName", JSON.stringify(response.data));
         setUser({ ...user, "name": response.data.name });
         navigate("/home");
       } else {
